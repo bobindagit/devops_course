@@ -1,0 +1,175 @@
+stages:
+  - gitsync
+  - createBase
+  - syntax-check
+  - xunit
+  - vanessa
+  - ACC
+  - Sonar
+  - Allure
+
+gitsync:
+  stage: gitsync
+  only:
+    - schedules
+  tags:
+    - OneS
+  script:
+    - gitsync sync -u ci-bot -p 12345678 C:\Train_04_20\Develop\V8storage src\cf
+    - git push http://ci-bot:12345678@192.168.31.187/root/Train_04_20 HEAD:develop
+
+
+Создание тестовой базы:
+  except:
+    - schedules
+  stage: createBase
+  only:
+    refs:
+      - develop
+  tags:
+    - OneS
+  script:
+    - vrunner init-dev --dt C:\Train_04_20\Template\course.dt --db-user Администратор --src src/cf
+
+
+Синтаксический контроль:
+  except:
+    - schedules
+
+  stage: syntax-check
+  variables:
+    GIT_STRATEGY: none
+  only:
+    refs:
+      - develop
+  tags:
+    - OneS
+  script:
+    - vrunner syntax-check
+  artifacts:
+    reports:
+      junit:
+        out/syntax-check/junit/junit.xml
+
+
+
+Дымовые тесты:
+  except:
+    - schedules
+
+  stage: xunit
+  variables:
+    GIT_STRATEGY: none
+  allow_failure: true
+  only:
+    refs:
+      - develop
+  tags:
+    - OneS
+  script:
+    - runner xunit
+  artifacts:
+    reports:
+      junit:
+        out/*.xml
+
+
+vanessa:
+  except:
+    - schedules
+
+  stage: vanessa
+  variables:
+    GIT_STRATEGY: none
+  allow_failure: true
+  only:
+    refs:
+      - develop
+  tags:
+    - OneS
+  script:
+    -  runner vanessa
+
+
+
+АПК:
+  except:
+    - schedules
+
+  stage: ACC
+  variables:
+    GIT_STRATEGY: none
+  allow_failure: true
+  only:
+    refs:
+      - develop
+  tags:
+    - OneS
+  script:
+    -  runner run --ibconnection /FC:/Train_04_20/Template/ACC --db-user="" --db-pwd=""  --command "acc.catalog=$env:CI_PROJECT_DIR;acc.propertiesPaths=./tools/acc-export/acc.properties;" --execute "./tools/acc-export/acc-export.epf" --ordinaryapp=1
+
+
+Sonar:
+  except:
+    - schedules
+
+  stage: Sonar
+  variables:
+    GIT_STRATEGY: none
+  allow_failure: true
+  only:
+    refs:
+      - develop
+  tags:
+    - OneS
+  script:
+    - C:\sonar-scanner\bin\sonar-scanner -D sonar.login=b398eb45331f9fc123b352b4cf96d320cfeef8cd -D sonar.projectVersion=$env:CI_BUILD_ID
+
+
+Allure:
+  except:
+    - schedules
+
+  stage: Allure
+  variables:
+    GIT_STRATEGY: none
+  allow_failure: true
+  only:
+    refs:
+      - develop
+  tags:
+    - OneS
+  script:
+    - allure generate out/syntax-check/allure out/allure/smoke out/allure -c -o out/allure-result
+  artifacts:
+    paths:
+      - out/allure-result
+
+
+
+
+
+# stages:
+#   - ping1
+#   - ping2
+
+
+# ping:
+#   stage: ping1
+#   only:
+#     refs:
+#       - develop
+#   tags:
+#     - OneS
+#   script:
+#     - ping 8.8.8.8
+
+# ping2:
+#   stage: ping2
+#   only:
+#     refs:
+#       - master
+#   tags:
+#     - OneS
+#   script:
+#     - ping 8.8.8.8

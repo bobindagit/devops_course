@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<CommandInterface xmlns="http://v8.1c.ru/8.3/xcf/extrnprops" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.11">
+	<CommandsVisibility>
+		<Command name="Catalog.Номенклатура.StandardCommand.OpenList">
+			<Visibility>
+				<xr:Common>true</xr:Common>
+			</Visibility>
+		</Command>
+		<Command name="Document.ПриходнаяНакладная.StandardCommand.OpenList">
+			<Visibility>
+				<xr:Common>true</xr:Common>
+			</Visibility>
+		</Command>
+		<Command name="Document.РасходнаяНакладная.StandardCommand.OpenList">
+			<Visibility>
+				<xr:Common>true</xr:Common>
+			</Visibility>
+		</Command>
+		<Command name="Document.Операция.StandardCommand.OpenList">
+			<Visibility>
+				<xr:Common>true</xr:Common>
+			</Visibility>
+		</Command>
+		<Command name="ChartOfCharacteristicTypes.ВидыСубконто.StandardCommand.OpenList">
+			<Visibility>
+				<xr:Common>true</xr:Common>
+			</Visibility>
+		</Command>
+		<Command name="ChartOfAccounts.Управленческий.StandardCommand.OpenList">
+			<Visibility>
+				<xr:Common>true</xr:Common>
+			</Visibility>
+		</Command>
+		<Command name="AccountingRegister.Управленческий.StandardCommand.OpenList">
+			<Visibility>
+				<xr:Common>true</xr:Common>
+			</Visibility>
+		</Command>
+		<Command name="Document.ПриходнаяНакладная.StandardCommand.Create">
+			<Visibility>
+				<xr:Common>true</xr:Common>
+			</Visibility>
+		</Command>
+		<Command name="Document.РасходнаяНакладная.StandardCommand.Create">
+			<Visibility>
+				<xr:Common>true</xr:Common>
+			</Visibility>
+		</Command>
+		<Command name="Document.Операция.StandardCommand.Create">
+			<Visibility>
+				<xr:Common>true</xr:Common>
+			</Visibility>
+		</Command>
+	</CommandsVisibility>
+	<CommandsPlacement>
+		<Command name="Catalog.Номенклатура.StandardCommand.OpenList">
+			<CommandGroup>CommandGroup.Справочники</CommandGroup>
+			<Placement>Auto</Placement>
+		</Command>
+		<Command name="Document.ПриходнаяНакладная.StandardCommand.OpenList">
+			<CommandGroup>CommandGroup.Документы</CommandGroup>
+			<Placement>Auto</Placement>
+		</Command>
+		<Command name="Document.РасходнаяНакладная.StandardCommand.OpenList">
+			<CommandGroup>CommandGroup.Документы</CommandGroup>
+			<Placement>Auto</Placement>
+		</Command>
+		<Command name="Document.Операция.StandardCommand.OpenList">
+			<CommandGroup>CommandGroup.Документы</CommandGroup>
+			<Placement>Auto</Placement>
+		</Command>
+		<Command name="ChartOfCharacteristicTypes.ВидыСубконто.StandardCommand.OpenList">
+			<CommandGroup>CommandGroup.ПланыВидовХарактеристик</CommandGroup>
+			<Placement>Auto</Placement>
+		</Command>
+		<Command name="ChartOfAccounts.Управленческий.StandardCommand.OpenList">
+			<CommandGroup>CommandGroup.ПланыСчетов</CommandGroup>
+			<Placement>Auto</Placement>
+		</Command>
+		<Command name="AccountingRegister.Управленческий.StandardCommand.OpenList">
+			<CommandGroup>CommandGroup.РегистрыБухгалтерии</CommandGroup>
+			<Placement>Auto</Placement>
+		</Command>
+	</CommandsPlacement>
+	<CommandsOrder>
+		<Command name="Catalog.Номенклатура.StandardCommand.OpenList">
+			<CommandGroup>CommandGroup.Справочники</CommandGroup>
+		</Command>
+		<Command name="Document.ПриходнаяНакладная.StandardCommand.OpenList">
+			<CommandGroup>CommandGroup.Документы</CommandGroup>
+		</Command>
+		<Command name="Document.РасходнаяНакладная.StandardCommand.OpenList">
+			<CommandGroup>CommandGroup.Документы</CommandGroup>
+		</Command>
+		<Command name="Document.Операция.StandardCommand.OpenList">
+			<CommandGroup>CommandGroup.Документы</CommandGroup>
+		</Command>
+		<Command name="ChartOfCharacteristicTypes.ВидыСубконто.StandardCommand.OpenList">
+			<CommandGroup>CommandGroup.ПланыВидовХарактеристик</CommandGroup>
+		</Command>
+		<Command name="ChartOfAccounts.Управленческий.StandardCommand.OpenList">
+			<CommandGroup>CommandGroup.ПланыСчетов</CommandGroup>
+		</Command>
+		<Command name="AccountingRegister.Управленческий.StandardCommand.OpenList">
+			<CommandGroup>CommandGroup.РегистрыБухгалтерии</CommandGroup>
+		</Command>
+		<Command name="ChartOfCharacteristicTypes.ВидыСубконто.StandardCommand.Create">
+			<CommandGroup>ActionsPanelCreate</CommandGroup>
+		</Command>
+		<Command name="Catalog.Номенклатура.StandardCommand.Create">
+			<CommandGroup>ActionsPanelCreate</CommandGroup>
+		</Command>
+		<Command name="Catalog.Номенклатура.StandardCommand.CreateFolder">
+			<CommandGroup>ActionsPanelCreate</CommandGroup>
+		</Command>
+		<Command name="Document.ПриходнаяНакладная.StandardCommand.Create">
+			<CommandGroup>ActionsPanelCreate</CommandGroup>
+		</Command>
+		<Command name="Document.РасходнаяНакладная.StandardCommand.Create">
+			<CommandGroup>ActionsPanelCreate</CommandGroup>
+		</Command>
+		<Command name="Document.Операция.StandardCommand.Create">
+			<CommandGroup>ActionsPanelCreate</CommandGroup>
+		</Command>
+		<Command name="ChartOfAccounts.Управленческий.StandardCommand.Create">
+			<CommandGroup>ActionsPanelCreate</CommandGroup>
+		</Command>
+	</CommandsOrder>
+	<SubsystemsOrder>
+		<Subsystem>5c8cc450-1c87-4af6-b11f-f721f09ba7b1</Subsystem>
+		<Subsystem>ad02d559-7eb8-4f86-bda2-52f110d94eda</Subsystem>
+		<Subsystem>1a63e573-d5a9-4201-96c2-17c693f39eb2</Subsystem>
+		<Subsystem>771c0eb3-72c6-41ad-aae5-3de538506e87</Subsystem>
+	</SubsystemsOrder>
+	<GroupsOrder>
+		<Group>CommandGroup.Справочники</Group>
+		<Group>CommandGroup.Документы</Group>
+		<Group>CommandGroup.ПланыВидовХарактеристик</Group>
+		<Group>CommandGroup.ПланыСчетов</Group>
+		<Group>CommandGroup.РегистрыБухгалтерии</Group>
+		<Group>ActionsPanelCreate</Group>
+	</GroupsOrder>
+</CommandInterface>

@@ -1,0 +1,24 @@
+Настройки файла gitlab.rb 
+
+nginx['custom_gitlab_server_config'] = "location ~ /artifacts/file/.*\.(html|txt|md|css|js|jpg|jpeg|png|json)$ {
+  rewrite ^(.*)/file/(.*)$ $1/raw/$2 last;
+  return 500;
+}
+
+location ~ /artifacts/raw/.*\.(html|txt|md|css|js|jpg|jpeg|png|json)$ {
+  proxy_cache off;
+  proxy_pass http://gitlab-workhorse;
+  proxy_hide_header Content-Disposition;
+  add_header Content-Disposition 'inline;';
+}"
+
+Команда переконфигурирования GitLab:
+gitlab-ctl reconfigure
+
+Включение отчета Junit:
+
+gitlab-rails console
+Feature.enable(:junit_pipeline_view)
+
+
+

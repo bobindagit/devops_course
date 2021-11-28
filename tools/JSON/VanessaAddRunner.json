@@ -1,0 +1,22 @@
+{   "$schema": "https://raw.githubusercontent.com/silverbulleters/vanessa-runner/develop/vanessa-runner-schema.json",
+    "default": {
+        "--ibconnection": "/F./build/ib",
+        "--db-user": "Администратор",
+        "--db-pwd": "",
+        "--v8version": "8.3.18",
+        "--additional": "/DisplayAllFunctions /Lru /iTaxi",
+        "--workspace": ".",
+        "--ordinaryapp": "-1"
+    },
+    "xunit": {
+        "--xddConfig": "./tools/JSON/smoke.json",
+        "testsPath": "$addRoot/tests/smoke",
+        "--reportsxunit": "ГенераторОтчетаJUnitXML{out/smoke/junit/junit.xml};ГенераторОтчетаAllureXMLВерсия2{out/smoke/allure/allure.xml}",
+        "--xddExitCodePath": "./build/xddExitCodePath.txt",
+        "--testclient": "Автотест:password:48223",
+        "--testclient-additional" : "/iTaxi"
+    },
+    "vanessa": {
+        "--vanessasettings": "./tools/JSON/VanessaAdd.json"
+       }
+    }
